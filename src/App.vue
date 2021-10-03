@@ -1,11 +1,15 @@
 <template>
   <div id="app">
-    <div class="container">
-      <div class="row">Ciaone</div>
-    </div>
-    
     <Header/>
-    <Albums/>
+    <main>
+        <div class="container">
+          <Albums/>
+        </div>
+        
+    </main>
+    
+    
+
   </div>
 </template>
 
@@ -23,5 +27,16 @@ export default{
 </script>
 
 <style lang="scss">
-@import "./assets/style/common"
+@import "./assets/style/common";
+#app{
+  main{
+  background-color: #1E2D3B;
+  padding-top: 100px;
+
+  .container{
+    width: 80%;
+  }
+}
+}
+
 </style>
