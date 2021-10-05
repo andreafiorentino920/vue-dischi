@@ -1,7 +1,7 @@
 <template>
   <section class="album-container container">
   <div class="row row-cols-5">
-    <div class="col" :key="index" v-for="(album,index) in albums">
+    <div class="col" :key="index" v-for="(album,index) in filterAlbums">
       <Album :info="album"/>
     </div>
   </div>
@@ -17,6 +17,7 @@
         components:{
             Album
         },
+        props:["selectedGenre"],
         data(){
           return{
             albums:[],
@@ -28,6 +29,19 @@
               .then((res) =>{
                 this.albums = res.data.response;
               });
+        },
+        computed:{
+          filterAlbums(){
+            const arrFiltered = this.albums.filter(
+              (elm) => {
+                if(elm.genre.toLowerCase() == this.selectedGenre.toLowerCase() || this.selectedGenre == ""){
+                  return true
+                }
+                return false
+              }
+            )
+            return arrFiltered;
+          }
         }
     }
 
