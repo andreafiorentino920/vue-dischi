@@ -19,7 +19,7 @@
         },
         data(){
           return{
-            albums:[]
+            albums:[],
           }
         },
         created(){

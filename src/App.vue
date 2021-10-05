@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <Header/>
+    <header>
+      <Header @selectGenres="selectGenres"/>
+    </header>
     <main>
         <div class="container">
-          <Albums/>
+          <Albums :selectedGenre="selectedGenre"/>
         </div>
-        
     </main>
-    
-    
-
   </div>
 </template>
 
@@ -22,7 +20,17 @@ export default{
   components:{
   Header,
   Albums
-  }
+  },
+  data(){
+    return{
+      selectedGenre: ""
+    }
+  },
+  methods:{
+    selectGenres(selectedGenre){
+    this.selectedGenre = selectedGenre
+    }
+  } 
 }
 </script>
 
@@ -35,8 +43,7 @@ export default{
 
   .container{
     width: 80%;
+    }
   }
 }
-}
-
 </style>
